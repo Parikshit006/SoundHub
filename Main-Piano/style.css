@@ -1,0 +1,395 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #888;
+}
+
+/* Wrapper (piano UI) */
+.wrapper {
+  padding: 35px 40px;
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.85);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  max-width: 1400px;
+  width: 95%;
+  position: relative;
+  z-index: 10;
+}
+
+.wrapper.loaded {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Header Layout */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Logo + “powered by” neat layout */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-section .powered-by {
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.logo-section .site-logo {
+  display: block;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Controls Layout */
+.controls-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+}
+
+/* Modern Volume Slider */
+/* ----- Music-icon Volume Thumb ----- */
+/* ----- Music-icon Volume Thumb ----- */
+/* Volume slider styling */
+/* Wrap container to anchor icon positioning */
+.volume-container {
+  position: relative;
+  width: 200px; /* or any width you like */
+  margin: 20px 0;
+}
+
+
+/* Volume slider */
+#volume-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background: #444; /* default before JS kicks in */
+  cursor: pointer;
+  outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0;
+  width: 0;
+  border: none;
+  background: transparent;
+}
+
+#volume-slider::-moz-range-thumb {
+  height: 0;
+  width: 0;
+  border: none;
+  background: transparent;
+}
+
+
+/* Remove native track color */
+#volume-slider::-webkit-slider-runnable-track {
+  background: transparent;
+}
+#volume-slider::-moz-range-track {
+  background: transparent;
+}
+
+
+/* Music icon that follows thumb */
+.music-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #d6770b;
+  pointer-events: none;
+
+}
+
+
+
+/* Modern “Show Keys” Toggle */
+.keys-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.keys-checkbox label {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.keys-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 40px;
+  height: 20px;
+  background: #333;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.keys-checkbox input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #e29f2b;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.keys-checkbox input[type="checkbox"]:checked {
+  background: #d6770b;
+}
+
+.keys-checkbox input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+/* Piano Keys */
+.piano-keys {
+  display: flex;
+  list-style: none;
+  margin-top: 40px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.piano-keys .key {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.piano-keys .white {
+  height: 250px;
+  width: 70px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: linear-gradient(#fff 96%, #eee 4%);
+  z-index: 1;
+}
+
+.piano-keys .white.active {
+  box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+.piano-keys .black {
+  width: 44px;
+  height: 160px;
+  margin: 0 -22px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(#333, #000);
+  z-index: 2;
+}
+
+.piano-keys .black.active {
+  box-shadow: inset -5px -10px 10px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom, #000, #434343);
+}
+
+.piano-keys .key span {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  color: #a2a2a2;
+  font-size: 1.13rem;
+  text-align: center;
+}
+
+.piano-keys .key.hide span {
+  display: none;
+}
+
+.piano-keys .black span {
+  bottom: 13px;
+  color: #888;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .piano-keys {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+  .piano-keys .white {
+    width: 60px;
+    height: 200px;
+  }
+  .piano-keys .black {
+    width: 38px;
+    height: 130px;
+    margin: 0 -19px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .logo-section,
+  .controls-section {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .wrapper {
+    padding: 25px;
+  }
+  .piano-keys {
+    margin-top: 20px;
+  }
+  .piano-keys .key:nth-child(n+19) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .piano-keys .key:nth-child(n+13) {
+    display: none;
+  }
+  .piano-keys .white {
+    width: 50px;
+    height: 180px;
+  }
+  .piano-keys .black {
+    width: 32px;
+    height: 110px;
+    margin: 0 -16px;
+  }
+}
+
+/* Ripple Canvas Background */
+#ripple-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(20, 20, 30, 0.6), rgba(10, 10, 20, 0.8));
+  filter: blur(0.5px);
+}
+/* Recording Controls */
+.record-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.record-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.record-buttons button {
+  padding: 8px 18px;
+  font-size: 14px;
+  background-color: #d6770b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.record-buttons button:hover {
+  background-color: #b45c09;
+}
+
+#record-preview {
+  margin-top: 8px;
+  width: 250px;
+  max-width: 90%;
+}
+
+#record-preview::-webkit-media-controls-panel {
+  background-color: #222;
+  color: #fff;
+}
+.record-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.record-controls button,
+.record-controls a {
+  background: #d6770b;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.record-controls button:hover,
+.record-controls a:hover {
+  background: #e68f1f;
+}
+
+#record-preview {
+  display: none;
+  margin-top: 10px;
+}
+

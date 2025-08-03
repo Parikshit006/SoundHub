@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -6,7 +6,18 @@ body {
     background-color: #010101;
     color: #eee;
     overflow: hidden;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    background-color: #010101;
+    color: #eee;
+    overflow: hidden;
 }
+
 
 svg {
     width: 25px;
@@ -34,7 +45,7 @@ svg {
 
 .nav_logo {
     font-weight: bold;
-    font-size: 22px;
+    font-size: 30px;
     color: #eee;
 }
 
@@ -54,7 +65,7 @@ svg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgba(243, 228, 228, 0.303);
+    color: rgba(185, 173, 173, 0.347);
     padding: 0.5rem 1rem;
     border-radius: 999px;
     transition: color 0.3s ease;
@@ -90,7 +101,7 @@ svg {
 }
 
 .nav-item.active {
-    background: #646161;
+    background: #59595950;
     color: #ccc;
 }
 
@@ -120,6 +131,7 @@ svg {
     overflow: hidden;
     opacity: 0;
     transition: 0.5s;
+    margin-top: 50px;
 }
 
 .slider .list .item img {
@@ -195,41 +207,34 @@ svg {
     opacity: 1;
 }
 
-.liquid-button-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-}
 
-.liquid-button-wrapper:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-}
 
 .play-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-weight: 600;
     font-size: 1rem;
-    cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
+    gap: 10px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     transform: translateY(30px);
     filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1.6s ease-in-out 1 forwards;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .play-button:hover {
-    background-color: #0056b3;
+    background-color: rgba(255, 255, 255, 0.15);
     transform: translateY(30px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 .play-button svg {
@@ -237,6 +242,7 @@ svg {
     width: 18px;
     height: 18px;
 }
+
 
 .arrows {
     position: absolute;
