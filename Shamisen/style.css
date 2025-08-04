@@ -1,0 +1,215 @@
+
+html, body {
+    background-color: #817272; 
+    color: #e0e0e0;           
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    cursor: url("bachi_cursor_48x48.png") 4 44, auto;
+}
+
+div#lutemain1 {
+    vertical-align: middle;
+    margin-top: -50px;
+}
+div#lutelines {
+    display: inline-block;
+    height: 100%;
+    /* cursor: pointer; */
+    margin-top: 100px;
+}
+
+div#vline1 {
+  
+    width: 2px;
+    background-color: #000000;
+    height: 80%; 
+    float: left;
+    margin-left: 5px;
+}
+
+div#vline2 {
+    width: 2px; 
+    background-color: #000000; 
+    height: 80%; 
+    float: left;
+    margin-left: 5px;
+}
+
+div#vline3 {
+
+    width: 2px; 
+    background-color: #000000; 
+    height: 80%; 
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+div#vline4 {
+    width: 2px; 
+    background-color: #000000; 
+    height: 80%; 
+    float: left;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+div#vline5 {
+    width: 2px; 
+    background-color: #000000; 
+    height: 80%;
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+div#vline1:hover {
+    background-color: gray;
+}
+
+div#vline2:hover {
+    background-color:  gray;
+}
+
+div#vline3:hover {
+    background-color:  gray;
+}
+
+div#vline4:hover {
+    background-color:  gray;
+}
+
+div#vline5:hover {
+    background-color:  gray;
+}
+
+#lutemain1 {
+
+    vertical-align: middle;
+    margin-top: 50px;
+}
+
+
+#shamisen-wrapper {
+    position: relative;
+    width: 400px;  
+    height: 850px; 
+    display: inline-block;
+}
+
+
+#shamisen-bg {
+ 
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('shamisen.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center top;
+    z-index: 0;
+    opacity: 1;
+}
+
+
+#lutelines {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding: 0 30px;
+}
+
+
+#lutelines > div {
+    width: 3px;
+    background-color: #000;
+    cursor: none;
+    transition: background-color 0.2s ease;
+}
+
+
+#lutelines > div:hover {
+    background-color: #803d1d;
+}
+#recorder-controls {
+  position: absolute;
+  top: 100px;
+  left: calc(50% + 230px); /* push it right outside the instrument */
+  background: #1a1a1a;
+  padding: 15px 25px;
+  border-radius: 12px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+
+#recorder-controls button,
+#recorder-controls a {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#recorder-controls button:hover,
+#recorder-controls a:hover {
+  background: #ff3300;
+}
+
+.nocursor {
+  cursor: default !important;
+}
+
+#recorder-controls {
+  position: fixed;
+  top: 60px;
+  right: 30px;
+  background: #1a1a1a;
+  padding: 15px 25px;
+  border-radius: 12px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+#recorder-controls button,
+#recorder-controls a {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#recorder-controls button:hover,
+#recorder-controls a:hover {
+  background: #ff6600;
+}
+#lutelines > div.active-key {
+  background-color: #ff6600 !important;
+}
+
