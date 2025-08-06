@@ -6,22 +6,41 @@
   <title>Shamisen Instrument</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="waves_background.css" />
+  <link rel="icon" href="Final-logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <!-- Top-left Logo -->
+   <a href="../SoundHub/index.html">
+    <div id="top-left-logo">
+      <img src="logo.png" alt="Logo" />
+    </div>
+   </a>
+
   <div id="waves-container">
     <div id="cursor-indicator"></div>
     <canvas id="waves-canvas"></canvas>
   </div>
 
-  <!-- Recorder Control Panel -->
-  <div id="recorder-controls">
-    <button id="startRecording">Start Recording</button>
-    <button id="stopRecording">Stop Recording</button>
-    <button id="replayAudio">Replay</button>
-    <a id="downloadLink" style="display: none" download="shamisen_recording.wav">Download</a>
-    <audio id="audioPreview" controls style="display: none; margin-top: 10px;"></audio>
+  <!-- Draggable Recorder Control Panel -->
+  <div id="recorder-controls" class="draggable">
+    <div id="recordWrapper">
+      <button id="startRecording" class="control-btn" title="Start Recording">
+        <i class="fas fa-circle"></i> 
+      </button>
+      <span id="recordingTimer" style="display: none; color: #fff; font-size: 14px; margin-top: 8px;"></span>
+    </div>
+
+    <button id="replayAudio" class="control-btn" title="Replay" style="display: none;">
+      <i class="fas fa-rotate-left"></i> 
+    </button>
+    <a id="downloadLink" style="display: none" download="shamisen_recording.wav" title="Download" class="control-btn">
+      <i class="fas fa-download"></i> 
+    </a>
+    <audio id="audioPreview" style="display: none; margin-top: 10px;"></audio>
   </div>
 
+  <!-- Shamisen Instrument -->
   <div id="lutemain1" align="center">
     <div id="shamisen-wrapper">
       <div id="shamisen-bg"></div>

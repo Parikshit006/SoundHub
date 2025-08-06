@@ -3,6 +3,11 @@ let recordedChunks = [];
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let dest = audioContext.createMediaStreamDestination();
 
+let isRecording = false;
+let timerInterval;
+let secondsElapsed = 0;
+
+// Audio playback function
 function play(file) {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -23,43 +28,74 @@ document.addEventListener('click', () => {
   }
 }, { once: true });
 
-document.getElementById('startRecording').addEventListener('click', () => {
-  recordedChunks = [];
-  mediaRecorder = new MediaRecorder(dest.stream);
+// DOM Elements
+const startBtn = document.getElementById('startRecording');
+const replayBtn = document.getElementById('replayAudio');
+const audioPreview = document.getElementById('audioPreview');
+const downloadLink = document.getElementById('downloadLink');
+const timerDisplay = document.getElementById('recordingTimer');
 
-  mediaRecorder.ondataavailable = e => {
-    if (e.data.size > 0) recordedChunks.push(e.data);
-  };
+// Start/Stop toggle logic
+startBtn.addEventListener('click', () => {
+  if (!isRecording) {
+    // START RECORDING
+    recordedChunks = [];
+    mediaRecorder = new MediaRecorder(dest.stream);
 
-  mediaRecorder.onstop = () => {
-    const blob = new Blob(recordedChunks, { type: 'audio/wav' });
-    const audioURL = URL.createObjectURL(blob);
-    const audioPreview = document.getElementById('audioPreview');
-    const downloadLink = document.getElementById('downloadLink');
+    mediaRecorder.ondataavailable = e => {
+      if (e.data.size > 0) recordedChunks.push(e.data);
+    };
 
-    audioPreview.src = audioURL;
-    audioPreview.style.display = 'block';
+    mediaRecorder.onstop = () => {
+      const blob = new Blob(recordedChunks, { type: 'audio/wav' });
+      const audioURL = URL.createObjectURL(blob);
+      audioPreview.src = audioURL;
 
-    downloadLink.href = audioURL;
-    downloadLink.style.display = 'inline-block';
-  };
+      downloadLink.href = audioURL;
+      downloadLink.style.display = 'inline-block';
+      replayBtn.style.display = 'inline-block';
 
-  mediaRecorder.start();
-});
+      startBtn.innerHTML = `<i class="fas fa-circle"></i> <span>Record</span>`;
+      startBtn.classList.remove('active-button');
 
-document.getElementById('stopRecording').addEventListener('click', () => {
-  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      clearInterval(timerInterval);
+      timerDisplay.style.display = 'none';
+    };
+
+    mediaRecorder.start();
+
+    isRecording = true;
+    startBtn.innerHTML = `<i class="fas fa-stop"></i> <span>Stop</span>`;
+    startBtn.classList.add('active-button');
+
+    // Start timer
+    secondsElapsed = 0;
+    timerDisplay.style.display = 'block';
+    timerDisplay.textContent = 'Recording: 0s';
+
+    timerInterval = setInterval(() => {
+      secondsElapsed++;
+      timerDisplay.textContent = `Recording: ${secondsElapsed}s`;
+    }, 1000);
+
+    replayBtn.style.display = 'none';
+    downloadLink.style.display = 'none';
+  } else {
+    // STOP RECORDING
     mediaRecorder.stop();
+    isRecording = false;
   }
 });
 
-document.getElementById('replayAudio').addEventListener('click', () => {
-  const audio = document.getElementById('audioPreview');
-  if (audio.src) {
-    audio.currentTime = 0;
-    audio.play();
+// Replay
+replayBtn.addEventListener('click', () => {
+  if (audioPreview.src) {
+    audioPreview.currentTime = 0;
+    audioPreview.play();
   }
 });
+
+// Keyboard to audio mapping
 const shamisenKeyMap = {
   a: 'music_lute01.mp3',
   s: 'music_lute02.mp3',
@@ -74,17 +110,11 @@ document.addEventListener('keydown', (event) => {
   if (file) {
     play(file);
 
-    // Highlight the string like hover
     const index = Object.keys(shamisenKeyMap).indexOf(key) + 1;
     const vline = document.getElementById(`vline${index}`);
     if (vline) {
       vline.classList.add('active-key');
-      setTimeout(() => {
-        vline.classList.remove('active-key');
-      }, 200); // Highlight duration
+      setTimeout(() => vline.classList.remove('active-key'), 200);
     }
   }
 });
-
-
-
