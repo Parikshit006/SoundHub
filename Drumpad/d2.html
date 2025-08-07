@@ -7,12 +7,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link rel="icon" href="Final-logo.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="logos"> 
-    <h1 style="color: rgb(174, 190, 197);" class="name">Powered By </h1> 
-    <img src="logo.png" alt="logo" class="logo">
+
+  <!-- Logo Top Left -->
+  <a href="../SoundHub/index.html">
+    <div class="top-logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+  </a>
+
+  <div class="footer">
+    <span>Powered by</span>
+    <img src="logo.png" alt="SoundHub" class="soundhub-logo" />
   </div>
 
   <div class="machine-panel">
@@ -38,17 +47,14 @@
     </div>
 
     <div class="controls">
-      <!-- Record -->
       <button id="recordBtn" class="control-btn" title="Record / Stop">
         <i class="fas fa-circle"></i>
       </button>
 
-      <!-- Replay -->
       <button id="replayBtn" class="control-btn" title="Replay" style="display: none;">
         <i class="fas fa-play"></i>
       </button>
 
-      <!-- Download -->
       <span>
         <a id="downloadLink" class="control-btn" title="Download" href="#" download="drumpad-recording.webm" style="display: none;">
           <i class="fas fa-download"></i>

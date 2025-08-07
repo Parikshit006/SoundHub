@@ -4,19 +4,36 @@ const prevButton = document.getElementById('prev');
 const thumbnails = document.querySelectorAll('.thumbnail .item');
 const navItems = document.querySelectorAll('.nav-item');
 const thumbnailContainer = document.querySelector('.thumbnail');
+const playButtons = document.querySelectorAll('.play-button');
 
 let itemActive = 0;
 const countItem = items.length;
 
+const pageMap = [
+  '../Drumpad/d2.html',
+  '../Piano/index.html',
+  '../Shamisen/index.html',
+  '../flute.html',
+  '../drum.html'
+];
+
+
+// 🚀 Add click event to each Play button to navigate to its page
+playButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    window.location.href = pageMap[index];
+  });
+});
+
 // Navigation bar active state
 navItems.forEach(item => {
-  item.addEventListener('click', e => {
+  item.addEventListener('click', () => {
     navItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
   });
 });
 
-// Slider navigation (Next/Prev buttons)
+// Slider navigation
 nextButton.addEventListener('click', () => {
   itemActive = (itemActive + 1) % countItem;
   showSlider();
@@ -27,7 +44,6 @@ prevButton.addEventListener('click', () => {
   showSlider();
 });
 
-// Main slider control function
 function showSlider() {
   document.querySelector('.slider .list .item.active')?.classList.remove('active');
   document.querySelector('.thumbnail .item.active')?.classList.remove('active');
@@ -35,10 +51,19 @@ function showSlider() {
   items[itemActive].classList.add('active');
   thumbnails[itemActive].classList.add('active');
 
+  // Re-trigger animations
+  const activeItem = items[itemActive];
+  const animatedElements = activeItem.querySelectorAll('.category, .instrument-name, .description, .play-button');
+
+  animatedElements.forEach(el => {
+    el.style.animation = 'none';
+    void el.offsetHeight;
+    el.style.animation = '';
+  });
+
   scrollThumbnailIntoView(thumbnails[itemActive]);
 }
 
-// Center active thumbnail in view
 function scrollThumbnailIntoView(el) {
   const rect = el.getBoundingClientRect();
   if (rect.left < 0 || rect.right > window.innerWidth) {
@@ -46,7 +71,6 @@ function scrollThumbnailIntoView(el) {
   }
 }
 
-// Thumbnail hover effect (scaling)
 thumbnailContainer.addEventListener('mousemove', (e) => {
   const containerRect = thumbnailContainer.getBoundingClientRect();
   const mouseX = e.clientX - containerRect.left;
@@ -71,10 +95,16 @@ thumbnailContainer.addEventListener('mouseleave', () => {
   });
 });
 
-// Thumbnail click to jump
 thumbnails.forEach((thumb, index) => {
-  thumb.addEventListener('mouseenter', () => { // Changed to mouseenter for consistency with the hover effect
+  thumb.addEventListener('mouseenter', () => {
     itemActive = index;
     showSlider();
   });
+});
+
+// Initialize the slider to show DrumPad as default
+document.addEventListener('DOMContentLoaded', () => {
+  // Ensure DrumPad is active by default
+  itemActive = 0;
+  showSlider();
 });
