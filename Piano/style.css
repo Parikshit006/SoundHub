@@ -1,4 +1,4 @@
-/* Import Google font - Poppins */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 * {
@@ -18,7 +18,6 @@ body {
   background-color: #888;
 }
 
-/* Wrapper (piano UI) */
 .wrapper {
   padding: 35px 40px;
   border-radius: 20px;
@@ -39,7 +38,7 @@ body {
   opacity: 1;
 }
 
-/* Header Layout */
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -47,7 +46,7 @@ body {
   width: 100%;
 }
 
-/* Logo + “powered by” neat layout */
+
 .logo-section {
   display: flex;
   align-items: center;
@@ -68,7 +67,7 @@ body {
   object-fit: contain;
 }
 
-/* Controls Layout */
+
 .controls-section {
   display: flex;
   flex-direction: column;
@@ -80,14 +79,13 @@ body {
   gap: 20px;
 }
 
-/* Modern Volume Slider */
-/* ----- Music-icon Volume Thumb ----- */
+
 .volume-container {
   position: relative;
   width: 200px;
   margin: 20px 0;
 }
-/* Hide the slider thumb (circle) */
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -143,7 +141,7 @@ input[type="range"]::-ms-thumb {
   pointer-events: none;
 }
 
-/* Modern “Show Keys” Toggle */
+
 .keys-checkbox {
   display: flex;
   align-items: center;
@@ -181,7 +179,7 @@ input[type="range"]::-ms-thumb {
   transform: translateX(20px);
 }
 
-/* Piano Keys */
+
 .piano-keys {
   display: flex;
   list-style: none;
@@ -237,7 +235,7 @@ input[type="range"]::-ms-thumb {
   color: #888;
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 1200px) {
   .piano-keys {
     flex-wrap: wrap;
@@ -297,7 +295,7 @@ input[type="range"]::-ms-thumb {
   color: white;
 }
 
-/* Ripple Canvas Background */
+
 #ripple-canvas {
   position: fixed;
   top: 0;
@@ -310,7 +308,7 @@ input[type="range"]::-ms-thumb {
   filter: blur(0.5px);
 }
 
-/* Recording Controls */
+
 .record-controls {
   display: flex;
   gap: 12px;
@@ -325,7 +323,7 @@ input[type="range"]::-ms-thumb {
   pointer-events: none;
 }
 
-/* Toggle Record Button */
+
 #record-toggle {
   background: #d6770b;
   padding: 10px 16px;
@@ -339,7 +337,7 @@ input[type="range"]::-ms-thumb {
   background: #e68f1f;
 }
 
-/* Live Timer Display */
+
 #record-timer {
   font-size: 14px;
   color: #eee;
@@ -350,7 +348,7 @@ input[type="range"]::-ms-thumb {
   text-align: center;
 }
 
-/* Download Button Styling */
+
 .record-controls a.download-btn {
   background: #d6770b;
   color: white;
@@ -366,7 +364,7 @@ input[type="range"]::-ms-thumb {
   background: #e68f1f;
 }
 
-/* Replay Button Styling */
+
 #replay-btn {
   background: #d6770b;
   color: white;
@@ -384,7 +382,7 @@ input[type="range"]::-ms-thumb {
   margin-right: 6px;
 }
 
-/* Hide the real audio */
+
 #record-preview {
   display: none;
 }

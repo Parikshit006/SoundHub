@@ -11,6 +11,9 @@ const soundMap = {
   X: "sounds/X.mp3",
   C: "sounds/C.mp3"
 };
+let timerInterval;
+let timerSeconds = 0;
+const timerDisplay = document.getElementById("timer");
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const dest = audioCtx.createMediaStreamDestination();
@@ -48,7 +51,6 @@ function getRandomRGB() {
   return `rgba(${r}, ${g}, ${b}, 0.6)`;
 }
 
-// Play sound
 function playSound(key, isReplay = false) {
   if (!isPowerOn) return;
   const k = key.toUpperCase();
@@ -81,7 +83,6 @@ function playSound(key, isReplay = false) {
   }
 }
 
-// RGB effect
 function triggerRGBPulse(pad) {
   const pulse = document.createElement("div");
   pulse.classList.add("rgb-pulse");
@@ -92,7 +93,6 @@ function triggerRGBPulse(pad) {
   setTimeout(() => pulse.remove(), 400);
 }
 
-// Background effect
 function triggerBackgroundPulse() {
   document.body.classList.add("bass-pulse");
   setTimeout(() => document.body.classList.remove("bass-pulse"), 300);
@@ -148,18 +148,23 @@ recordBtn.addEventListener("click", () => {
   }
 });
 
-// Replay
+
 replayBtn.addEventListener("click", () => {
-  if (audioBlobUrl && recordedEvents.length > 0) {
-    const audio = new Audio(audioBlobUrl);
-    const baseTime = recordedEvents[0].time;
-    audio.play();
+  if (recordedEvents.length > 0) {
+    replayBtn.disabled = true;
+    replayBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`; 
+
     recordedEvents.forEach(({ key, time }) => {
-      const delay = time - baseTime;
       setTimeout(() => {
         playSound(key, true);
-      }, delay);
+      }, time);
     });
+
+    const totalDuration = recordedEvents[recordedEvents.length - 1].time + 500;
+    setTimeout(() => {
+      replayBtn.disabled = false;
+      replayBtn.innerHTML = `<i class="fas fa-redo"></i>`; 
+    }, totalDuration);
   }
 
   recordBtn.style.display = "inline-block";

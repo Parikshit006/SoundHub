@@ -1,3 +1,6 @@
+// Interactive waves background script for Shamisen Source code taken from 21st dev official website 
+// official link:https://21st.dev/reactbits/waves-background/default
+
 
 ;(function() {
   // ── Utility Classes ──────────────────────────────────────────────────────────

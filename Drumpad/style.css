@@ -12,10 +12,6 @@ body {
   position: relative;
 }
 
-.logos {
-  font-size: 30px;
-}
-
 body::before {
   content: "";
   position: absolute;
@@ -32,7 +28,6 @@ body.bass-pulse::before {
   animation: wavePulse 0.4s ease;
 }
 
-/* Background animation */
 @keyframes waveRotate {
   0% { transform: rotate(330deg) scale(1); }
   50% { transform: rotate(330deg) scale(1.05); }
@@ -99,7 +94,9 @@ body.bass-pulse::before {
   grid-template-columns: repeat(3, 100px);
   gap: 20px;
 }
-
+.drum-grid>div{
+  user-select: none;
+}
 .pad {
   width: 100px;
   height: 100px;
@@ -148,7 +145,6 @@ body.bass-pulse::before {
   text-shadow: 0 0 6px #0ff;
 }
 
-/* Pulse effect */
 .rgb-pulse {
   position: absolute;
   width: 20px;
@@ -168,7 +164,6 @@ body.bass-pulse::before {
   }
 }
 
-/* RGB border animation */
 @keyframes padRGB {
   0% { box-shadow: 0 0 10px red; border-color: red; }
   25% { box-shadow: 0 0 10px yellow; border-color: yellow; }
@@ -177,7 +172,6 @@ body.bass-pulse::before {
   100% { box-shadow: 0 0 10px magenta; border-color: magenta; }
 }
 
-/* Responsive */
 @media (max-width: 420px) {
   .drum-grid {
     grid-template-columns: repeat(3, 80px);
@@ -199,22 +193,29 @@ body.bass-pulse::before {
   animation: glowPulse 2s ease-in-out infinite;
 }
 
-.name {
+.footer {
   position: absolute;
-  bottom: 52px;
-  left: 790px;
-  font-size: 13px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #0ff;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 0 6px #0ff;
+  z-index: 3;
+  opacity: 0.9;
+}
+.footer span {
+  margin-top: 5px;
+}
+.soundhub-logo {
+  height: 60px;
+  filter: drop-shadow(0 0 4px #ff6f61) brightness(1.2);
+  transform: translateY(1px);
 }
 
-.logo {
-  width: 95px;
-  height: 50px;
-  position: absolute;
-  bottom: 46px;
-  left: 855px;
-}
-
-/* Controls */
 .controls {
   display: flex;
   flex-direction: row;
@@ -260,18 +261,12 @@ body.bass-pulse::before {
   box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
 }
 
-.download-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Record state */
 #recordBtn.recording {
   background-color: red;
   color: white;
   box-shadow: 0 0 10px red, 0 0 15px red;
 }
 
-/* Replay glow */
 .pad.replay-glow {
   animation: glowKey 0.4s ease-in-out;
   background-color: #0ff;
@@ -279,16 +274,18 @@ body.bass-pulse::before {
 }
 
 @keyframes glowKey {
-  0% {
-    box-shadow: 0 0 0px #0ff;
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 20px #0ff;
-    transform: scale(1.1);
-  }
-  100% {
-    box-shadow: 0 0 0px #0ff;
-    transform: scale(1);
-  }
+  0% { box-shadow: 0 0 0px #0ff; transform: scale(1); }
+  50% { box-shadow: 0 0 20px #0ff; transform: scale(1.1); }
+  100% { box-shadow: 0 0 0px #0ff; transform: scale(1); }
+}
+
+.top-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+.top-logo img {
+  height: 100px;
+  
 }
