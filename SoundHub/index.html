@@ -13,6 +13,10 @@
 
     <main class="slider">
         <header class="main-header">
+    
+
+    <main class="slider">
+        <header class="main-header">
         <div class="nav-wrapper">
             <div class="nav_logo"><img src="logo.png" ></div>
             <nav class="tubelight-navbar">
@@ -133,6 +137,43 @@
                 </div>
             </div>
 
+
+            <div class="item">
+                <img src="./image/flute.jpg" alt="Flute">
+                <div class="content">
+                    <p class="category">WIND</p>
+                    <h2 class="instrument-name">Flute</h2>
+                    <p class="description">
+                        The flute produces sound through air vibrations and breath control. Known for its soft, enchanting tones, it's one of the oldest instruments in the world.
+                    </p>
+                    <button class="play-button">
+                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
+                        </svg>
+                        
+                        <span class="play">Coming Soon</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="./image/drum.jpg" alt="Drum">
+                <div class="content">
+                    <p class="category">PERCUSSION</p>
+                    <h2 class="instrument-name">Drum</h2>
+                    <p class="description">
+                        Drums create rhythm and heartbeat for music. Played with sticks or hands, they bring energy and pulse to every musical composition.
+                    </p>
+                    <button class="play-button">
+                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
+                        </svg>
+                        
+                        <span class="play">Coming soon </span>
+                    </button>
+                </div>
+            </div>
+
         </div>
 
         <div class="arrows">
@@ -147,8 +188,8 @@
             </div>
 
             <div class="item">
-                <img src="./image/piano-thumb.png" alt="Piano Thumbnail">
-                <div class="content">Piano</div>
+                <img src="./image/drum-thumb.jpg" alt="Drum Thumbnail">
+                <div class="content">Drum</div>
             </div>
 
             <div class="item">
@@ -168,6 +209,214 @@
             
         </div>
     </main>
+
+
+
+
+    <!-- Loading Animation -->
+    <div class="loading-animation" id="loadingAnimation">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <div class="floating-notes">
+        <div class="note note-1">♪</div>
+        <div class="note note-2">♫</div>
+        <div class="note note-3">🎵</div>
+        <div class="note note-4">♪</div>
+        <div class="note note-5">♫</div>
+        <div class="note note-6">🎶</div>
+        <div class="note note-7">♪</div>
+    </div>
+   
+    <section class="parallax-section" id="section1">
+        <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img6.webp');"></div>
+        <div class="parallax-content">
+            <div class="floating-elements">
+                <div class="ping-effect"></div>
+            </div>
+            <h1 class="section-title silence-title">It Begins With Silence</h1>
+            <p class="section-subtitle">Before the first beat — there is pause. Stillness. Anticipation. In this sacred space, music is born.</p>
+            <div class="sound-visualization">
+                <div class="sound-bar"></div>
+                <div class="sound-bar"></div>
+                <div class="sound-bar"></div>
+                <div class="sound-bar"></div>
+                <div class="sound-bar"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section" id="section2">
+        <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img5.webp');"></div>
+        <div class="parallax-content">
+            <div class="floating-elements">
+                <div class="floating-icon instrument-1">🎹</div>
+                <div class="floating-icon instrument-2">🎻</div>
+            </div>
+            <h1 class="section-title">The First Vibration</h1>
+            <p class="section-subtitle">A string is plucked. A skin is struck. Sound waves ripple through air, creating the fundamental building blocks of music.</p>
+            <div class="instruments-grid">
+                <div class="instrument-card">
+                    <div class="instrument-header">
+                        <span class="instrument-icon">🎹</span>
+                        <h3 class="instrument-name">Piano</h3>
+                    </div>
+                    <p class="instrument-description">The king of instruments, where melody and harmony unite in perfect balance.</p>
+                    <div class="instrument-sound">
+                        <span class="sound-icon">♪</span>
+                        <span style="color: #f7e4ab;">Rich, resonant tones that speak to the soul</span>
+                    </div>
+                </div>
+
+                <div class="instrument-card">
+                    <div class="instrument-header">
+                        <span class="instrument-icon">🎻</span>
+                        <h3 class="instrument-name">Shamisen</h3>
+                    </div>
+                    <p class="instrument-description">Three strings that echo centuries of tradition, from the quiet grace of tea houses to the fierce roar of the battlefield.</p>
+                    <div class="instrument-sound">
+                        <span class="sound-icon">♪</span>
+                        <span style="color: #f7e4ab;">Versatile vibrations from traditional ballads to contemporary fusion</span>
+                    </div>
+                </div>
+
+                <div class="instrument-card">
+                    <div class="instrument-header">
+                        <span class="instrument-icon">🟫</span>
+                        <h3 class="instrument-name">DrumPad</h3>
+                    </div>
+                    <p class="instrument-description">A digital heartbeat, delivering rhythms that spark movement and ignite the stage.</p>
+                    <div class="instrument-sound">
+                        <span class="sound-icon">♪</span>
+                        <span style="color: #f7e4ab;">Electronic beats that pulse with modern energy</span>
+                    </div>
+                </div>
+
+                <!-- <div class="instrument-card">
+                    <div class="instrument-header">
+                        <span class="instrument-icon">🥁</span>
+                        <h3 class="instrument-name">Drums</h3>
+                    </div>
+                    <p class="instrument-description">The heartbeat of music, driving rhythm and energy through every beat.</p>
+                    <div class="instrument-sound">
+                        <span class="sound-icon">♪</span>
+                        <span  style="color: #f7e4ab;">Powerful percussion that moves the body</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="parallax-section" id="section3">
+        <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img2.jpg');"></div>
+        <div class="parallax-content">
+            <h1 class="section-title cultural-title" style="color: #ff6600;">Sounds of the World</h1>
+            <p class="section-subtitle">Dive into traditional instruments from different cultures, each carrying the heartbeat and soul of its people.</p>
+            <div class="cultural-grid">
+                <div class="cultural-card" data-culture="indian">
+                    <div class="cultural-header">
+                        <span class="cultural-flag">🇮🇳</span>
+                        <h3 class="cultural-name">Indian</h3>
+                    </div>
+                    <div class="cultural-instruments">
+                        <span class="instrument-tag">Tabla</span>
+                        <span class="instrument-tag">Sitar</span>
+                    </div>
+                    <p class="cultural-description">Rich rhythmic traditions and melodic ragas that tell stories of devotion and celebration.</p>
+                    <div class="cultural-sound">
+                        <span class="sound-icon">♪</span>
+                        <span>Explore this musical heritage</span>
+                    </div>
+                </div>
+
+                <div class="cultural-card" data-culture="african">
+                    <div class="cultural-header">
+                       
+                        <h3 class="cultural-name">African</h3>
+                    </div>
+                    <div class="cultural-instruments">
+                        <span class="instrument-tag">Djembe</span>
+                        <span class="instrument-tag">Kalimba</span>
+                    </div>
+                    <p class="cultural-description">Rhythms that connect to the earth and melodies that dance like thumb pianos under stars.</p>
+                    <div class="cultural-sound">
+                        <span class="sound-icon">♪</span>
+                        <span>Explore this musical heritage</span>
+                    </div>
+                </div>
+
+                <div class="cultural-card" data-culture="japanese">
+                    <div class="cultural-header">
+                        <span class="cultural-flag">🇯🇵</span>
+                        <h3 class="cultural-name">Japanese</h3>
+                    </div>
+                    <div class="cultural-instruments">
+                        <span class="instrument-tag">Koto</span>
+                        <span class="instrument-tag">Taiko</span>
+                    </div>
+                    <p class="cultural-description">Ancient strings that whisper like wind through bamboo and drums that thunder like mountain storms.</p>
+                    <div class="cultural-sound">
+                        <span class="sound-icon">♪</span>
+                        <span>Explore this musical heritage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer" id="section4">
+        <footer class="musical-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-icon">🎵</div>
+                <h2 class="brand-name">SoundHub</h2>
+                <p class="brand-tagline">Where every note finds its home</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Changelog</a></li>
+                        <li><a href="#">Brand</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Social Links</h3>
+                    <ul class="social-links">
+                        <li><a href="#"><span>📘</span> Facebook</a></li>
+                        <li><a href="#"><span>📷</span> Instagram</a></li>
+                        <li><a href="#"><span>📺</span> YouTube</a></li>
+                        <li><a href="#"><span>💼</span> LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 SoundHub. All rights reserved. Made with ♪ for music lovers everywhere.</p>
+        </div>
+    </footer>
+    </section>
+   
+
+    <script src="script.js"></script>
 
 
 

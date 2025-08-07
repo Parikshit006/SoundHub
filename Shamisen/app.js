@@ -8,6 +8,11 @@ let timerInterval;
 let secondsElapsed = 0;
 
 // Audio playback function
+let isRecording = false;
+let timerInterval;
+let secondsElapsed = 0;
+
+// Audio playback function
 function play(file) {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -22,6 +27,7 @@ function play(file) {
   });
 }
 
+// Resume audio context on first interaction
 document.addEventListener('click', () => {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -42,6 +48,9 @@ startBtn.addEventListener('click', () => {
     recordedChunks = [];
     mediaRecorder = new MediaRecorder(dest.stream);
 
+    mediaRecorder.ondataavailable = e => {
+      if (e.data.size > 0) recordedChunks.push(e.data);
+    };
     mediaRecorder.ondataavailable = e => {
       if (e.data.size > 0) recordedChunks.push(e.data);
     };
@@ -84,6 +93,7 @@ startBtn.addEventListener('click', () => {
     // STOP RECORDING
     mediaRecorder.stop();
     isRecording = false;
+    isRecording = false;
   }
 });
 
@@ -94,6 +104,8 @@ replayBtn.addEventListener('click', () => {
     audioPreview.play();
   }
 });
+
+// Keyboard to audio mapping
 
 // Keyboard to audio mapping
 const shamisenKeyMap = {
@@ -114,6 +126,7 @@ document.addEventListener('keydown', (event) => {
     const vline = document.getElementById(`vline${index}`);
     if (vline) {
       vline.classList.add('active-key');
+      setTimeout(() => vline.classList.remove('active-key'), 200);
       setTimeout(() => vline.classList.remove('active-key'), 200);
     }
   }
