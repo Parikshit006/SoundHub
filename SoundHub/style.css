@@ -1,5 +1,7 @@
 /* Import RAJDHANI font */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+/* Import RAJDHANI font */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 /* Enhanced color palette with RAJDHANI font */
 :root {
@@ -380,10 +382,7 @@ body {
     color: var(--foreground);
     transition: var(--transition-smooth);
     cursor: pointer;
-    /* display: none; */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 700;
+    display: none;
 }
 
 .arrows button:hover {
