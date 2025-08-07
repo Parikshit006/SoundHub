@@ -12,7 +12,7 @@ const previewAudio = document.getElementById('record-preview');
 const downloadLink = document.getElementById('download-link');
 const replayBtn = document.getElementById('replay-btn');
 
-// Hide timer, preview & download & replay on load
+
 recordTimerEl.style.display = 'none';
 previewAudio.style.display = 'none';
 downloadLink.style.display = 'none';
@@ -25,12 +25,12 @@ let mediaRecorder,
     recordStartTime = 0,
     recordedNotes = [];
 
-// Setup Web Audio context
+
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const dest = audioCtx.createMediaStreamDestination();
 mediaRecorder = new MediaRecorder(dest.stream);
 
-// MediaRecorder events
+
 mediaRecorder.ondataavailable = e => chunks.push(e.data);
 mediaRecorder.onstop = () => {
   const blob = new Blob(chunks, { type: 'audio/webm' });
@@ -39,13 +39,13 @@ mediaRecorder.onstop = () => {
   downloadLink.href = url;
   downloadLink.download = 'piano-recording.webm';
 
-  // Show preview and download
+  
   previewAudio.style.display = 'block';
   downloadLink.style.display = 'inline-block';
   replayBtn.style.display = recordedNotes.length ? 'inline-block' : 'none';
 };
 
-// Toggle recording
+
 function toggleRecording() {
   if (!isRecording) {
     chunks = [];
@@ -78,7 +78,7 @@ function toggleRecording() {
 
 recordToggleBtn.addEventListener('click', toggleRecording);
 
-// Key-to-file mapping
+
 const keyToFileMap = {
   'a': 'A.wav', 'w': 'W.wav', 's': 'S.wav', 'd': 'D.wav', 'f': 'F.wav',
   't': 'T.wav', 'g': 'G.wav', 'y': 'Y.wav', 'h': 'H.wav', 'j': 'J.wav',
@@ -98,7 +98,6 @@ pianoKeys.forEach(key => {
   key.addEventListener('click', () => playTune(k));
 });
 
-// Play note
 function playTune(k) {
   const keyEl = document.querySelector(`.key[data-key="${k}"]`);
   const file = keyToFileMap[k] || 'A.wav';
@@ -117,11 +116,11 @@ function playTune(k) {
       src.start();
     });
 
-  // Visual effect
+ 
   keyEl.classList.add('active');
   setTimeout(() => keyEl.classList.remove('active'), 300);
 
-  // Ripple
+  
   const rect = keyEl.getBoundingClientRect();
   if (rect) createRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
 
@@ -131,7 +130,7 @@ function playTune(k) {
   }
 }
 
-// Keyboard support
+
 let pressed = new Set();
 document.addEventListener('keydown', e => {
   const k = e.key.toLowerCase();
@@ -141,7 +140,7 @@ document.addEventListener('keydown', e => {
 });
 document.addEventListener('keyup', e => pressed.delete(e.key.toLowerCase()));
 
-// Volume slider visuals
+
 function updateMusicIconPosition() {
   const val = parseFloat(volumeSlider.value);
   const w = volumeSlider.offsetWidth;
@@ -158,12 +157,12 @@ volumeSlider.addEventListener('input', () => {
 updateMusicIconPosition();
 updateSliderBackground();
 
-// Show/hide labels
+
 keysCheckbox.addEventListener('change', () =>
   pianoKeys.forEach(key => key.classList.toggle('hide'))
 );
 
-// Ripple Canvas
+
 const canvas = document.getElementById('ripple-canvas');
 const ctx = canvas.getContext('2d');
 let ripples = [];
@@ -207,7 +206,7 @@ function animateRipples() {
 }
 animateRipples();
 
-// Replay Button
+
 replayBtn.addEventListener('click', () => {
   if (!recordedNotes.length) return;
   replayBtn.disabled = true;
@@ -225,5 +224,5 @@ replayBtn.addEventListener('click', () => {
   }, recordedNotes[recordedNotes.length - 1].time + 500);
 });
 
-// Load animation
+
 window.addEventListener('load', () => wrapper.classList.add('loaded'));
