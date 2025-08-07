@@ -8,11 +8,6 @@ let timerInterval;
 let secondsElapsed = 0;
 
 // Audio playback function
-let isRecording = false;
-let timerInterval;
-let secondsElapsed = 0;
-
-// Audio playback function
 function play(file) {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -27,6 +22,7 @@ function play(file) {
   });
 }
 
+// Resume audio context on first interaction
 document.addEventListener('click', () => {
   if (audioContext.state === 'suspended') {
     audioContext.resume();
@@ -40,20 +36,7 @@ const audioPreview = document.getElementById('audioPreview');
 const downloadLink = document.getElementById('downloadLink');
 const timerDisplay = document.getElementById('recordingTimer');
 
-// Start/Stop toggle logic
-startBtn.addEventListener('click', () => {
-  if (!isRecording) {
-    // START RECORDING
-    recordedChunks = [];
-    mediaRecorder = new MediaRecorder(dest.stream);
-// DOM Elements
-const startBtn = document.getElementById('startRecording');
-const replayBtn = document.getElementById('replayAudio');
-const audioPreview = document.getElementById('audioPreview');
-const downloadLink = document.getElementById('downloadLink');
-const timerDisplay = document.getElementById('recordingTimer');
-
-// Start/Stop toggle logic
+// Start/Stop Recording
 startBtn.addEventListener('click', () => {
   if (!isRecording) {
     // START RECORDING
@@ -63,30 +46,14 @@ startBtn.addEventListener('click', () => {
     mediaRecorder.ondataavailable = e => {
       if (e.data.size > 0) recordedChunks.push(e.data);
     };
-    mediaRecorder.ondataavailable = e => {
-      if (e.data.size > 0) recordedChunks.push(e.data);
-    };
 
     mediaRecorder.onstop = () => {
       const blob = new Blob(recordedChunks, { type: 'audio/wav' });
       const audioURL = URL.createObjectURL(blob);
+
       audioPreview.src = audioURL;
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(recordedChunks, { type: 'audio/wav' });
-      const audioURL = URL.createObjectURL(blob);
-      audioPreview.src = audioURL;
-
       downloadLink.href = audioURL;
-      downloadLink.style.display = 'inline-block';
-      replayBtn.style.display = 'inline-block';
 
-      startBtn.innerHTML = `<i class="fas fa-circle"></i> <span>Record</span>`;
-      startBtn.classList.remove('active-button');
-
-      clearInterval(timerInterval);
-      timerDisplay.style.display = 'none';
-    };
-      downloadLink.href = audioURL;
       downloadLink.style.display = 'inline-block';
       replayBtn.style.display = 'inline-block';
 
@@ -103,7 +70,7 @@ startBtn.addEventListener('click', () => {
     startBtn.innerHTML = `<i class="fas fa-stop"></i> <span>Stop</span>`;
     startBtn.classList.add('active-button');
 
-    // Start timer
+    // Start Timer
     secondsElapsed = 0;
     timerDisplay.style.display = 'block';
     timerDisplay.textContent = 'Recording: 0s';
@@ -115,48 +82,21 @@ startBtn.addEventListener('click', () => {
 
     replayBtn.style.display = 'none';
     downloadLink.style.display = 'none';
-  } else {
-    // STOP RECORDING
-    mediaRecorder.start();
 
-    isRecording = true;
-    startBtn.innerHTML = `<i class="fas fa-stop"></i> <span>Stop</span>`;
-    startBtn.classList.add('active-button');
-
-    // Start timer
-    secondsElapsed = 0;
-    timerDisplay.style.display = 'block';
-    timerDisplay.textContent = 'Recording: 0s';
-
-    timerInterval = setInterval(() => {
-      secondsElapsed++;
-      timerDisplay.textContent = `Recording: ${secondsElapsed}s`;
-    }, 1000);
-
-    replayBtn.style.display = 'none';
-    downloadLink.style.display = 'none';
   } else {
     // STOP RECORDING
     mediaRecorder.stop();
     isRecording = false;
-    isRecording = false;
   }
 });
 
-// Replay
-replayBtn.addEventListener('click', () => {
-  if (audioPreview.src) {
-    audioPreview.currentTime = 0;
-    audioPreview.play();
-// Replay
+// Replay Button
 replayBtn.addEventListener('click', () => {
   if (audioPreview.src) {
     audioPreview.currentTime = 0;
     audioPreview.play();
   }
 });
-
-// Keyboard to audio mapping
 
 // Keyboard to audio mapping
 const shamisenKeyMap = {
@@ -177,7 +117,6 @@ document.addEventListener('keydown', (event) => {
     const vline = document.getElementById(`vline${index}`);
     if (vline) {
       vline.classList.add('active-key');
-      setTimeout(() => vline.classList.remove('active-key'), 200);
       setTimeout(() => vline.classList.remove('active-key'), 200);
     }
   }
