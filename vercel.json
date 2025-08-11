@@ -7,25 +7,10 @@
     }
   ],
   "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/drumpad",
-      "dest": "/instruments/drumpad.html"
-    },
-    {
-      "src": "/piano",
-      "dest": "/instruments/piano.html"
-    },
-    {
-      "src": "/shamisen",
-      "dest": "/instruments/shamisen.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/drumpad", "dest": "/drumpad.html" },
+    { "src": "/piano", "dest": "/piano.html" },
+    { "src": "/shamisen", "dest": "/shamisen.html" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
