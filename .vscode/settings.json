@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "liveServer.settings.port": 5504
+=======
+    "liveServer.settings.port": 5501
+>>>>>>> d6e98c2 (first commit)
 }

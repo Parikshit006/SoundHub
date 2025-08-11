@@ -1,0 +1,206 @@
+html, body {
+  background-color: #817272;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  cursor: url("../assets/images/bachi_cursor_48x48.png") 4 44, auto;
+}
+
+/* Shamisen layout */
+div#lutemain1 {
+  vertical-align: middle;
+
+}
+
+div#lutelines {
+  display: inline-block;
+  height: 100%;
+  margin-top: 100px;
+}
+
+div#vline1, div#vline2, div#vline3, div#vline4, div#vline5 {
+  width: 2px;
+  background-color: #000000;
+  height: 80%;
+  float: left;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+div#vline5 {
+  margin-right: 5px;
+}
+
+div#vline1:hover,
+div#vline2:hover,
+div#vline3:hover,
+div#vline4:hover,
+div#vline5:hover {
+  background-color: gray;
+}
+
+#shamisen-wrapper {
+  position: relative;
+  width: 400px;
+  height: 850px;
+  display: inline-block;
+}
+
+#shamisen-bg {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('../assets/images/shamisen.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  z-index: 0;
+  opacity: 1;
+}
+
+#lutelines {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 0 30px;
+}
+
+#lutelines > div {
+  width: 3px;
+  background-color: #000;
+  cursor: none;
+  transition: background-color 0.2s ease;
+}
+
+#lutelines > div:hover {
+  background-color: #803d1d;
+}
+
+#lutelines > div.active-key {
+  background-color: #ff6600 !important;
+}
+
+/* Recorder Control Panel */
+#recorder-controls {
+  position: fixed;
+  top: 60px;
+  cursor: pointer;
+  right: 30px;
+  background: #1a1a1a;
+  padding: 12px 16px;
+  border-radius: 12px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  width: 200px;
+  align-items: center;
+}
+
+#recorder-controls button,
+#recorder-controls a {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  /* width: 80%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#recorder-controls>a{
+    text-decoration: none;
+}
+
+#recorder-controls button:hover,
+#recorder-controls a:hover {
+  background: #ff3300;
+}
+
+#recorder-controls button i,
+#recorder-controls a i {
+  margin-right: 8px;
+}
+
+/* Highlight active button in red */
+#recorder-controls button.active-button {
+  background: #c0392b !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 51, 0, 0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 51, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 51, 0, 0); }
+}
+
+/* Optional loader style (if ever re-added) */
+.dots-loader {
+  display: flex;
+  gap: 4px;
+  margin-left: 10px;
+}
+
+.dots-loader div {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  animation: dotPulse 1s infinite;
+}
+
+.dots-loader div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots-loader div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Disable cursor if needed */
+.nocursor {
+  cursor: default !important;
+}
+#recordingTimer {
+  font-family: 'Rajdhani', sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+}
+#top-left-logo {
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+#top-left-logo img {
+  height: 40px;
+  width: auto;
+}

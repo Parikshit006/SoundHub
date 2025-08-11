@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/drumpad",
+      "dest": "/instruments/drumpad.html"
+    },
+    {
+      "src": "/piano",
+      "dest": "/instruments/piano.html"
+    },
+    {
+      "src": "/shamisen",
+      "dest": "/instruments/shamisen.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
