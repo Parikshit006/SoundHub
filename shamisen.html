@@ -1,60 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic HTML metadata -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <!-- Page Title -->
   <title>Shamisen Instrument</title>
-  <link rel="stylesheet" href="shamisen-style.css" />
-  <link rel="stylesheet" href="waves_background.css" />
-     <link rel="icon" href="../assets/images/Final-logo.png">
+  
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="shamisen-style.css" /> <!-- Main styling for Shamisen instrument -->
+  <link rel="stylesheet" href="waves_background.css" /> <!-- Styling for animated waves background -->
+  
+  <!-- Website Favicon -->
+  <link rel="icon" href="../assets/images/Final-logo.png">
+  
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Top-left Logo -->
-       <a href="../index.html">
-     <div id="top-left-logo">
-       <img src="../assets/images/logo.png" alt="Logo" />
-     </div>
-    </a>
+  
+  <!-- Logo in top-left corner (clickable, links back to home page) -->
+  <a href="../index.html">
+    <div id="top-left-logo">
+      <img src="../assets/images/logo.png" alt="Logo" />
+    </div>
+  </a>
 
+  <!-- Animated Waves Background Layer -->
   <div id="waves-container">
-    <div id="cursor-indicator"></div>
-    <canvas id="waves-canvas"></canvas>
+    <div id="cursor-indicator"></div> <!-- Small visual marker that follows the cursor -->
+    <canvas id="waves-canvas"></canvas> <!-- Canvas element for rendering animated waves -->
   </div>
 
-  <!-- Recorder Control Panel -->
+  <!-- Recorder Control Panel (Floating / Draggable) -->
   <div id="recorder-controls" class="draggable">
+    
+    <!-- Start/Stop Recording Button with Timer -->
     <div id="recordWrapper">
       <button id="startRecording" class="control-btn" title="Start Recording">
-        <i class="fas fa-circle"></i> 
+        <i class="fas fa-circle"></i> <!-- Red record icon -->
       </button>
+      <!-- Timer display (hidden until recording starts) -->
       <span id="recordingTimer" style="display: none; color: #fff; font-size: 14px; margin-top: 8px;"></span>
     </div>
 
+    <!-- Replay Button (Hidden by default) -->
     <button id="replayAudio" class="control-btn" title="Replay" style="display: none;">
-      <i class="fas fa-rotate-left"></i> 
+      <i class="fas fa-rotate-left"></i> <!-- Replay icon -->
     </button>
+
+    <!-- Download Link for Recorded Audio (Hidden by default) -->
     <a id="downloadLink" style="display: none" download="shamisen_recording.wav" title="Download" class="control-btn">
-      <i class="fas fa-download"></i> 
+      <i class="fas fa-download"></i> <!-- Download icon -->
     </a>
+
+    <!-- Audio Preview Player (Hidden until a recording exists) -->
     <audio id="audioPreview" style="display: none; margin-top: 10px;"></audio>
   </div>
 
-  <!-- Shamisen Instrument -->
+  <!-- Main Shamisen Instrument Area -->
   <div id="lutemain1" align="center">
     <div id="shamisen-wrapper">
+      
+      <!-- Background Image/Layer for Shamisen -->
       <div id="shamisen-bg"></div>
+      
+      <!-- Interactive String Lines (Each triggers a unique sound) -->
       <div id="lutelines">
-                 <div id="vline1" onmouseenter="play('../assets/sounds/music_lute01.mp3')"></div>
-         <div id="vline2" onmouseenter="play('../assets/sounds/music_lute02.mp3')"></div>
-         <div id="vline3" onmouseenter="play('../assets/sounds/music_lute03.mp3')"></div>
-         <div id="vline4" onmouseenter="play('../assets/sounds/music_lute04.mp3')"></div>
-         <div id="vline5" onmouseenter="play('../assets/sounds/music_lute05.mp3')"></div>
+        <!-- Vertical strings; play specific audio file when hovered -->
+        <div id="vline1" onmouseenter="play('../assets/sounds/music_lute01.mp3')"></div>
+        <div id="vline2" onmouseenter="play('../assets/sounds/music_lute02.mp3')"></div>
+        <div id="vline3" onmouseenter="play('../assets/sounds/music_lute03.mp3')"></div>
+        <div id="vline4" onmouseenter="play('../assets/sounds/music_lute04.mp3')"></div>
+        <div id="vline5" onmouseenter="play('../assets/sounds/music_lute05.mp3')"></div>
       </div>
     </div>
   </div>
 
-  <script src="waves_background.js"></script>
-  <script src="shamisen-app.js"></script>
+  <!-- External Scripts -->
+  <script src="waves_background.js"></script> <!-- Handles animated waves background -->
+  <script src="shamisen-app.js"></script> <!-- Handles Shamisen instrument interactivity & recording -->
 </body>
 </html>

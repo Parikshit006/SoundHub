@@ -1631,3 +1631,11 @@ html{
         padding: 0.2rem;
     }
 }
+.culture-content a{
+    text-decoration: none;
+    color: orange;
+}
+.culture-content a:hover{
+    text-decoration:underline;
+    
+}

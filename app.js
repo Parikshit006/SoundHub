@@ -10,9 +10,9 @@ let itemActive = 0;
 const countItem = items.length;
 
 const pageMap = [
-  './instruments/drumpad.html',
-  './instruments/piano.html',
-  './instruments/shamisen.html'
+  'drumpad.html',
+  'piano.html',
+  'shamisen.html'
 ];
 
 

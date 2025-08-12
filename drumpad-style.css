@@ -1,3 +1,6 @@
+/* ===============================
+   GLOBAL PAGE STYLES
+==================================*/
 body {
   margin: 0;
   height: 100vh;
@@ -12,41 +15,52 @@ body {
   position: relative;
 }
 
+/* Background animated radial wave */
 body::before {
   content: "";
   position: absolute;
   width: 200%;
   height: 200%;
-  background: repeating-radial-gradient(circle at center, rgba(0, 255, 255, 0.08) 0%, rgba(255, 0, 255, 0.05) 10%, transparent 20%);
+  background: repeating-radial-gradient(circle at center,
+              rgba(0, 255, 255, 0.08) 0%,
+              rgba(255, 0, 255, 0.05) 10%,
+              transparent 20%);
   animation: waveRotate 15s linear infinite;
   z-index: 0;
   transform: rotate(330deg);
   transition: transform 0.3s ease, scale 0.3s ease;
 }
 
+/* Pulse effect for bass hits */
 body.bass-pulse::before {
   animation: wavePulse 0.4s ease;
 }
 
+/* Background wave rotation animation */
 @keyframes waveRotate {
   0% { transform: rotate(330deg) scale(1); }
   50% { transform: rotate(330deg) scale(1.05); }
   100% { transform: rotate(330deg) scale(1); }
 }
 
+/* Pulse animation for beat drops */
 @keyframes wavePulse {
   0% { transform: rotate(330deg) scale(1); filter: brightness(1); }
   50% { transform: rotate(330deg) scale(1.08); filter: brightness(1.5); }
   100% { transform: rotate(330deg) scale(1); filter: brightness(1); }
 }
 
+/* ===============================
+   DRUM MACHINE PANEL
+==================================*/
 .machine-panel {
   position: relative;
   background: #111;
   border: 6px solid;
   border-radius: 30px;
   padding: 30px;
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0,255,255,0.2);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3),
+              inset 0 0 10px rgba(0,255,255,0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,6 +68,9 @@ body.bass-pulse::before {
   z-index: 2;
 }
 
+/* ===============================
+   TOGGLE SWITCH
+==================================*/
 .toggle-section {
   margin-bottom: 20px;
   font-size: 18px;
@@ -84,19 +101,26 @@ body.bass-pulse::before {
   transition: all 0.3s;
 }
 
+/* Active (ON) toggle state */
 .toggle-on .toggle-circle {
   left: 31px;
   background: lime;
 }
 
+/* ===============================
+   DRUM PADS GRID
+==================================*/
 .drum-grid {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   gap: 20px;
 }
-.drum-grid>div{
+
+.drum-grid > div {
   user-select: none;
 }
+
+/* Single drum pad styling */
 .pad {
   width: 100px;
   height: 100px;
@@ -118,11 +142,13 @@ body.bass-pulse::before {
   position: relative;
 }
 
+/* Hover glow effect */
 .pad:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 25px #fff, 0 0 20px #0ff;
 }
 
+/* Active pad press style */
 .pad:active,
 .pad.active {
   background-color: #0ff;
@@ -132,11 +158,13 @@ body.bass-pulse::before {
   transform: scale(0.97);
 }
 
+/* Key text on pad */
 .pad .key {
   font-size: 18px;
   font-weight: bold;
 }
 
+/* Icon on pad */
 .pad .icon {
   font-size: 24px;
   margin-top: 8px;
@@ -145,6 +173,7 @@ body.bass-pulse::before {
   text-shadow: 0 0 6px #0ff;
 }
 
+/* Small RGB pulse explosion effect */
 .rgb-pulse {
   position: absolute;
   width: 20px;
@@ -157,6 +186,7 @@ body.bass-pulse::before {
   z-index: 0;
 }
 
+/* RGB explosion animation */
 @keyframes rgb-explode {
   to {
     transform: scale(10);
@@ -164,6 +194,7 @@ body.bass-pulse::before {
   }
 }
 
+/* Pad RGB border and glow cycle */
 @keyframes padRGB {
   0% { box-shadow: 0 0 10px red; border-color: red; }
   25% { box-shadow: 0 0 10px yellow; border-color: yellow; }
@@ -172,6 +203,9 @@ body.bass-pulse::before {
   100% { box-shadow: 0 0 10px magenta; border-color: magenta; }
 }
 
+/* ===============================
+   RESPONSIVE DESIGN
+==================================*/
 @media (max-width: 420px) {
   .drum-grid {
     grid-template-columns: repeat(3, 80px);
@@ -184,6 +218,9 @@ body.bass-pulse::before {
   }
 }
 
+/* ===============================
+   TITLE
+==================================*/
 .title {
   font-family: 'Audiowide', sans-serif;
   font-size: 38px;
@@ -193,6 +230,9 @@ body.bass-pulse::before {
   animation: glowPulse 2s ease-in-out infinite;
 }
 
+/* ===============================
+   FOOTER
+==================================*/
 .footer {
   position: absolute;
   bottom: 20px;
@@ -207,15 +247,20 @@ body.bass-pulse::before {
   z-index: 3;
   opacity: 0.9;
 }
+
 .footer span {
   margin-top: 5px;
 }
+
 .soundhub-logo {
   height: 25px;
   filter: drop-shadow(0 0 4px #ff6f61) brightness(1.2);
   transform: translateY(1px);
 }
 
+/* ===============================
+   CONTROL BUTTONS
+==================================*/
 .controls {
   display: flex;
   flex-direction: row;
@@ -244,6 +289,7 @@ body.bass-pulse::before {
   line-height: 1;
 }
 
+/* Icon inside control buttons */
 .control-btn i {
   font-size: 24px;
   display: flex;
@@ -256,17 +302,20 @@ body.bass-pulse::before {
   margin-top: 17px;
 }
 
+/* Hover effect for control buttons */
 .control-btn:hover {
   background-color: #00e6e6;
   box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
 }
 
+/* Recording state button */
 #recordBtn.recording {
   background-color: red;
   color: white;
   box-shadow: 0 0 10px red, 0 0 15px red;
 }
 
+/* Pad glow during replay */
 .pad.replay-glow {
   animation: glowKey 0.4s ease-in-out;
   background-color: #0ff;
@@ -279,14 +328,17 @@ body.bass-pulse::before {
   100% { box-shadow: 0 0 0px #0ff; transform: scale(1); }
 }
 
+/* ===============================
+   TOP LOGO
+==================================*/
 .top-logo {
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 10;
 }
+
 .top-logo img {
   padding: 20px;
   height: 40px;
-  
 }

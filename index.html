@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic page meta settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundHub</title>
+
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
     <link rel="icon" href="./assets/images/Final-logo.png">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-
+    <!-- ================= MAIN SLIDER SECTION ================= -->
     <main class="slider">
+
+        <!-- ======= Navigation Bar ======= -->
         <header class="main-header">
-        <div class="nav-wrapper">
-            <div class="nav_logo"><img src="./assets/images/logo.png" ></div>
-            <nav class="tubelight-navbar">
-                <a href="#section0" class="nav-item active">
-                    <i class="icon">🏠</i>
-                    <span class="label">Home</span>
-                    <div class="lamp"></div>
-                </a>
-                <a href="#section2" class="nav-item">
-                    <i class="icon">💼</i>
-                    <span class="label" >Projects</span>
-                    <div class="lamp"></div>
-                </a>
-                <a href="#section3" class="nav-item">
-                    <i class="icon">📄</i>
-                    <span class="label" >Culture</span>
-                    <div class="lamp"></div>
-                </a>
-                 <a href="#section4" class="nav-item">
-                    <i class="icon">👤</i>
-                    <span class="label" >About</span>
-                    <div class="lamp"></div>
-                </a>
-            </nav>
-        </div>
-    </header> 
-    <section class="nav" id="section0"></section>
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <div class="nav_logo"><img src="./assets/images/logo.png"></div>
+
+                <!-- Tubelight Navbar -->
+                <nav class="tubelight-navbar">
+                    <a href="#section0" class="nav-item active">
+                        <i class="icon">🏠</i>
+                        <span class="label">Home</span>
+                        <div class="lamp"></div>
+                    </a>
+                    <a href="#section2" class="nav-item">
+                        <i class="icon">💼</i>
+                        <span class="label">Projects</span>
+                        <div class="lamp"></div>
+                    </a>
+                    <a href="#section3" class="nav-item">
+                        <i class="icon">📄</i>
+                        <span class="label">Culture</span>
+                        <div class="lamp"></div>
+                    </a>
+                    <a href="#section4" class="nav-item">
+                        <i class="icon">👤</i>
+                        <span class="label">About</span>
+                        <div class="lamp"></div>
+                    </a>
+                </nav>
+            </div>
+        </header> 
+
+        <!-- Empty section for nav scroll anchor -->
+        <section class="nav" id="section0"></section>
+
+        <!-- ======= Slider Items ======= -->
         <div class="list">
+            <!-- DrumPad -->
             <div class="item active">
                 <img src="./assets/images/drumpad.jpg" alt="Drum Pad">
                 <div class="content">
@@ -49,19 +65,16 @@
                     <p class="description">
                         A modern twist on percussion, the drum pad lets you tap out beats, effects, and samples with electronic precision and creativity.
                     </p>
-                    
                     <button class="play-button">
                         <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                             <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
                         </svg>
-                        
                         <span class="play">Play</span>
                     </button>
-                    
-                    
                 </div>
             </div>
-            
+
+            <!-- Piano -->
             <div class="item">
                 <img src="./assets/images/piano.png" alt="Piano">
                 <div class="content">
@@ -74,12 +87,12 @@
                         <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                             <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
                         </svg>
-                        
                         <span class="play">Play</span>
                     </button>
                 </div>
             </div>
 
+            <!-- Shamisen -->
             <div class="item">
                 <img src="./assets/images/shamisen.jpeg" alt="Shamisen">
                 <div class="content">
@@ -96,90 +109,41 @@
                     </button>
                 </div>
             </div>
-
-            <div class="item">
-                <img src="./image/flute.jpg" alt="Flute">
-                <div class="content">
-                    <p class="category">WIND</p>
-                    <h2 class="instrument-name">Flute</h2>
-                    <p class="description">
-                        The flute produces sound through air vibrations and breath control. Known for its soft, enchanting tones, it's one of the oldest instruments in the world.
-                    </p>
-                    <button class="play-button">
-                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                            <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
-                        </svg>
-                        
-                        <span class="play">Coming Soon</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="./image/drum.jpg" alt="Drum">
-                <div class="content">
-                    <p class="category">PERCUSSION</p>
-                    <h2 class="instrument-name">Drum</h2>
-                    <p class="description">
-                        Drums create rhythm and heartbeat for music. Played with sticks or hands, they bring energy and pulse to every musical composition.
-                    </p>
-                    <button class="play-button">
-                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                            <path d="M361 215C375 223 375 289 361 297L249 361C235 369 216 358 216 341V171C216 154 235 143 249 151L361 215z"/>
-                        </svg>
-                        
-                        <span class="play">Coming soon </span>
-                    </button>
-                </div>
-            </div>
-
         </div>
 
+        <!-- Slider Navigation Arrows -->
         <div class="arrows">
             <button id="prev"><</button>
             <button id="next">></button>
         </div>
 
+        <!-- Thumbnails -->
         <div class="thumbnail">
             <div class="item active">
                 <img src="./assets/images/drumpad_thum.jpg" alt="Drum Pad Thumbnail">
                 <div class="content">Drum-Pad</div>
             </div>
-
             <div class="item">
                 <img src="./assets/images/piano-thumb.png" alt="Piano Thumbnail">
                 <div class="content">Piano</div>
             </div>
-
             <div class="item">
                 <img src="./assets/images/shamisen-thumb.jpeg" alt="Shamisen Thumbnail">
                 <div class="content">Shamisen</div>
             </div>
-
-            <!-- <div class="item">
-                <img src="./image/flute-thumb.png" alt="Flute Thumbnail">
-                <div class="content">Flute</div>
-            </div>
-
-            <div class="item">
-                <img src="./image/drum-thumb.jpg" alt="Drum Thumbnail">
-                <div class="content">Drum</div>
-            </div> -->
-            
         </div>
     </main>
 
-
-
-
-    <!-- Loading Animation -->
+    <!-- ================= EXTRA UI ELEMENTS ================= -->
+    <!-- Loading animation -->
     <div class="loading-animation" id="loadingAnimation">
         <div class="loading-spinner"></div>
     </div>
     
-    <!-- Scroll Indicator -->
+    <!-- Scroll indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
+    <!-- Floating musical notes animation -->
     <div class="floating-notes">
         <div class="note note-1">♪</div>
         <div class="note note-2">♫</div>
@@ -189,7 +153,9 @@
         <div class="note note-6">🎶</div>
         <div class="note note-7">♪</div>
     </div>
-   
+
+    <!-- ================= PARALLAX SECTIONS ================= -->
+    <!-- Section 1 -->
     <section class="parallax-section" id="section1">
         <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img6.webp');"></div>
         <div class="parallax-content">
@@ -208,6 +174,7 @@
         </div>
     </section>
 
+    <!-- Section 2 -->
     <section class="parallax-section" id="section2">
         <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img5.webp');"></div>
         <div class="parallax-content">
@@ -218,6 +185,7 @@
             <h1 class="section-title">The First Vibration</h1>
             <p class="section-subtitle">A string is plucked. A skin is struck. Sound waves ripple through air, creating the fundamental building blocks of music.</p>
             <div class="instruments-grid">
+                <!-- Piano Card -->
                 <div class="instrument-card">
                     <div class="instrument-header">
                         <span class="instrument-icon">🎹</span>
@@ -230,6 +198,7 @@
                     </div>
                 </div>
 
+                <!-- Shamisen Card -->
                 <div class="instrument-card">
                     <div class="instrument-header">
                         <span class="instrument-icon">🎻</span>
@@ -242,6 +211,7 @@
                     </div>
                 </div>
 
+                <!-- DrumPad Card -->
                 <div class="instrument-card">
                     <div class="instrument-header">
                         <span class="instrument-icon">🟫</span>
@@ -253,111 +223,101 @@
                         <span style="color: #f7e4ab;">Electronic beats that pulse with modern energy</span>
                     </div>
                 </div>
-
-                <!-- <div class="instrument-card">
-                    <div class="instrument-header">
-                        <span class="instrument-icon">🥁</span>
-                        <h3 class="instrument-name">Drums</h3>
-                    </div>
-                    <p class="instrument-description">The heartbeat of music, driving rhythm and energy through every beat.</p>
-                    <div class="instrument-sound">
-                        <span class="sound-icon">♪</span>
-                        <span  style="color: #f7e4ab;">Powerful percussion that moves the body</span>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
 
-   
+    <!-- Section 3: Culture -->
     <section class="parallax-section" id="section3">
         <div class="parallax-bg" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img2.jpg');"></div>
         <div class="parallax-content">
             <h1 class="section-title cultural-title" style="color: #ff6600;">Sounds of the World</h1>
             <p class="section-subtitle">Dive into traditional instruments from different cultures, each carrying the heartbeat and soul of its people.</p>
             <div class="cultural-grid">
-        <div class="culture-card">
-            <img src="assets/images/piano-thumb.png" alt="Grand Piano" class="culture-img">
-            <div class="culture-content">
-                <h3>Western Elegance</h3>
-                <p>From grand concert halls to smoky jazz clubs, the piano has shaped centuries of Western music — blending classical sophistication with modern improvisation.</p>
-                <a href="#piano-section" class="explore-btn">Play Piano</a>
-            </div>
-        </div>
+                <!-- Piano Culture -->
+                <div class="culture-card">
+                    <img src="assets/images/piano-thumb.png" alt="Grand Piano" class="culture-img">
+                    <div class="culture-content">
+                        <h3>Western Elegance</h3>
+                        <p>From grand concert halls to smoky jazz clubs, the piano has shaped centuries of Western music — blending classical sophistication with modern improvisation.</p>
+                        <a href="piano.html" class="explore-btn">Play Piano</a>
+                    </div>
+                </div>
 
-        <!-- Urban Culture -->
-        <div class="culture-card">
-            <img src="assets/images/drumpad_thum.jpg" alt="Drumpad Beats" class="culture-img">
-            <div class="culture-content">
-                <h3>Urban Beats</h3>
-                <p>Inspired by hip-hop, R&B, and electronic dance music, the drumpad brings the energy of the streets to your fingertips — build grooves that move people.</p>
-                <a href="#drumpad-section" class="explore-btn">Play Drumpad</a>
-            </div>
-        </div>
+                <!-- Drumpad Culture -->
+                <div class="culture-card">
+                    <img src="assets/images/drumpad_thum.jpg" alt="Drumpad Beats" class="culture-img">
+                    <div class="culture-content">
+                        <h3>Urban Beats</h3>
+                        <p>Inspired by hip-hop, R&B, and electronic dance music, the drumpad brings the energy of the streets to your fingertips — build grooves that move people.</p>
+                        <a href="drumpad.html" class="explore-btn">Play Drumpad</a>
+                    </div>
+                </div>
 
-        <!-- Japanese Culture -->
-        <div class="culture-card">
-            <img src="assets/images/shamisen-thumb.jpeg" alt="Shamisen" class="culture-img">
-            <div class="culture-content">
-                <h3>Japanese Tradition</h3>
-                <p>With its bright, percussive tones, the shamisen has told stories for centuries — echoing the spirit of Japan’s festivals, folklore, and theatre.</p>
-                <a href="#shamisen-section" class="explore-btn">Play Shamisen</a>
-            </div>
-        </div>
+                <!-- Shamisen Culture -->
+                <div class="culture-card">
+                    <img src="assets/images/shamisen-thumb.jpeg" alt="Shamisen" class="culture-img">
+                    <div class="culture-content">
+                        <h3>Japanese Tradition</h3>
+                        <p>With its bright, percussive tones, the shamisen has told stories for centuries — echoing the spirit of Japan’s festivals, folklore, and theatre.</p>
+                        <a href="shamisen.html" class="explore-btn">Play Shamisen</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ================= FOOTER ================= -->
     <section class="footer" id="section4">
         <footer class="musical-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="brand-icon">🎵</div>
-                <h2 class="brand-name">SoundHub</h2>
-                <p class="brand-tagline">Where every note finds its home</p>
+            <div class="footer-container">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="brand-icon">🎵</div>
+                    <h2 class="brand-name">SoundHub</h2>
+                    <p class="brand-tagline">Where every note finds its home</p>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Changelog</a></li>
+                            <li><a href="#">Brand</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Social Links</h3>
+                        <ul class="social-links">
+                            <li><a href="#"><span>📘</span> Facebook</a></li>
+                            <li><a href="#"><span>📷</span> Instagram</a></li>
+                            <li><a href="#"><span>📺</span> YouTube</a></li>
+                            <li><a href="#"><span>💼</span> LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Changelog</a></li>
-                        <li><a href="#">Brand</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Social Links</h3>
-                    <ul class="social-links">
-                        <li><a href="#"><span>📘</span> Facebook</a></li>
-                        <li><a href="#"><span>📷</span> Instagram</a></li>
-                        <li><a href="#"><span>📺</span> YouTube</a></li>
-                        <li><a href="#"><span>💼</span> LinkedIn</a></li>
-                    </ul>
-                </div>
+            <!-- Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 SoundHub. All rights reserved. Made with ♪ for music lovers everywhere.</p>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 SoundHub. All rights reserved. Made with ♪ for music lovers everywhere.</p>
-        </div>
-    </footer>
+        </footer>
     </section>
-   
 
+    <!-- ================= SCRIPTS ================= -->
     <script src="script.js"></script>
-
     <script src="app.js"></script>
 </body>
 </html>

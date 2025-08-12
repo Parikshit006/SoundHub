@@ -204,3 +204,28 @@ div#vline5:hover {
   height: 40px;
   width: auto;
 }
+/* ---------------------------
+   Mobile Responsiveness
+--------------------------- */
+@media (max-width: 768px) {
+  
+  #recorder-controls {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 120px; 
+    padding: 10px 12px;
+    gap: 4px;
+  }
+
+  #recorder-controls button,
+  #recorder-controls a {
+    padding: 8px 12px; 
+    font-size: 0.9rem;
+  }
+
+  
+  #recordingTimer {
+    font-size: 12px;
+  }
+}

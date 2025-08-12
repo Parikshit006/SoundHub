@@ -4,29 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neon RGB Drum Pad</title>
+
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" href="../assets/images/Final-logo.png">
+
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="drumpad-style.css" />
 </head>
 <body>
 
-  <!-- Logo Top Left -->
+  <!-- ===== TOP LOGO (links back to homepage) ===== -->
   <a href="../index.html">
     <div class="top-logo">
       <img src="../assets/images/logo.png" alt="Logo">
     </div>
   </a>
 
+  <!-- ===== FOOTER (brand credit) ===== -->
   <div class="footer">
     <span>Powered by</span>
     <img src="../assets/images/logo.png" alt="SoundHub" class="soundhub-logo" />
   </div>
 
+  <!-- ===== DRUM MACHINE PANEL ===== -->
   <div class="machine-panel">
     <h1 class="title">DrumPad</h1>
 
+    <!-- Power Toggle Switch -->
     <div class="toggle-section">
       Power
       <div id="toggle" class="toggle-btn">
@@ -34,6 +45,8 @@
       </div>
     </div>
 
+    <!-- Drum Pads Grid -->
+    <!-- Each pad has a data-key attribute linked to keyboard key -->
     <div class="drum-grid"> 
       <div class="pad" data-key="Q"><div class="key">Q</div><i class="fas fa-drum icon"></i></div>
       <div class="pad" data-key="W"><div class="key">W</div><i class="fas fa-drum-steelpan icon"></i></div>
@@ -46,15 +59,19 @@
       <div class="pad" data-key="C"><div class="key">C</div><i class="fas fa-wave-square icon"></i></div>
     </div>
 
+    <!-- Recording / Playback / Download Controls -->
     <div class="controls">
+      <!-- Record Button -->
       <button id="recordBtn" class="control-btn" title="Record / Stop">
         <i class="fas fa-circle"></i>
       </button>
 
+      <!-- Replay Button (hidden until recording exists) -->
       <button id="replayBtn" class="control-btn" title="Replay" style="display: none;">
         <i class="fas fa-play"></i>
       </button>
 
+      <!-- Download Link (hidden until recording exists) -->
       <span>
         <a id="downloadLink" class="control-btn" title="Download" href="#" download="drumpad-recording.webm" style="display: none;">
           <i class="fas fa-download"></i>
@@ -63,6 +80,7 @@
     </div>
   </div>
 
+  <!-- JavaScript for drum pad functionality -->
   <script src="drumpad-script.js"></script>
 </body>
 </html>
