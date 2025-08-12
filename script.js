@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 loadingAnimation.classList.add('fade-out');
                 setTimeout(() => {
                     loadingAnimation.style.display = 'none';
-                }, 500);
-            }, 1500);
+                }, 300);
+            }, 900);
         }
     }
     
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const bg = section.querySelector('.parallax-bg');
                 if (bg) {
                     const rect = section.getBoundingClientRect();
-                    const speed = 0.5;
+                    const speed = 0.8;
 
                     if (rect.bottom >= 0 && rect.top <= window.innerHeight) {
                         const offset = rect.top;
@@ -382,3 +382,6 @@ window.LifeOfSound = {
     playSection,
     version: '1.0.0'
 };
+// let autoSlide = setInterval(() => {
+//   next.click(); // triggers your "next" button click function
+// }, 3000);
